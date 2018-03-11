@@ -23,8 +23,8 @@ sudo pacman -S cmake extra-cmake-modules                    # Installation
 ## Installation
 In order to install the theme and add it to your decorations do the following:
 ``` shell
-git clone https://github.com/alex47/Breeze2000
-cd Breeze2000
+git clone https://github.com/alex47/BreezeBlurred
+cd BreezeBlurred
 mkdir build
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DKDE_INSTALL_LIBDIR=lib -DBUILD_TESTING=OFF -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
