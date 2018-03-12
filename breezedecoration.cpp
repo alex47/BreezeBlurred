@@ -299,6 +299,7 @@ namespace Breeze
         if( hasNoBorders() && m_internalSettings->drawSizeGrip() ) createSizeGrip();
         else deleteSizeGrip();
 
+        m_opacityValue = m_internalSettings->opacitySlider() * 25.5;
     }
 
     //________________________________________________________________
@@ -443,9 +444,12 @@ namespace Breeze
             painter->setRenderHint(QPainter::Antialiasing);
             painter->setPen(Qt::NoPen);
 
-            QColor windowColor( this->titleBarColor() );
-            windowColor.setAlpha( m_internalSettings->opacitySlider() * 25.5 );
-            painter->setBrush( windowColor );
+            if (m_windowColor.rgb() != this->titleBarColor().rgb() ) {
+                m_windowColor = this->titleBarColor();
+                m_windowColor.setAlpha( m_opacityValue );
+            }
+
+            painter->setBrush( m_windowColor );
 
             // clip away the top part
             if( !hideTitleBar() ) painter->setClipRect(0, borderTop(), size().width(), size().height() - borderTop(), Qt::IntersectClip);

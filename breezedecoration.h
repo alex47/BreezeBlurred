@@ -28,7 +28,6 @@
 #include <KDecoration2/Decoration>
 #include <KDecoration2/DecoratedClient>
 #include <KDecoration2/DecorationSettings>
-#include <kwineffects.h>
 
 #include <QPalette>
 #include <QPropertyAnimation>
@@ -152,6 +151,9 @@ namespace Breeze
 
         //* active state change opacity
         qreal m_opacity = 0;
+
+        int m_opacityValue = 0;
+        QColor m_windowColor;
 
     };
 

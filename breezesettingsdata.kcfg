@@ -28,11 +28,6 @@
        <default>35, 38, 41</default>
     </entry>
 
-    <!-- close button -->
-    <entry name="OutlineCloseButton" type = "Bool">
-        <default>true</default>
-    </entry>
-
   </group>
 
   <group name="Windeco">
@@ -54,7 +49,7 @@
           <choice name="BorderVeryHuge" />
           <choice name="BorderOversized" />
       </choices>
-      <default>BorderNoSides</default>
+      <default>BorderNone</default>
     </entry>
 
     <!-- title alignment -->
@@ -86,21 +81,26 @@
     </entry>
 
     <entry name="DrawTitleBarSeparator" type = "Bool">
-        <default>true</default>
+        <default>false</default>
     </entry>
 
     <entry name="OpacitySlider" type = "Int">
-        <default>6</default>
+        <default>3</default>
+    </entry>
+
+    <!-- close button -->
+    <entry name="OutlineCloseButton" type = "Bool">
+        <default>false</default>
     </entry>
 
     <!-- size grip -->
     <entry name="DrawBackgroundGradient" type = "Bool">
-        <default>true</default>
+        <default>false</default>
     </entry>
 
     <!-- size grip -->
     <entry name="DrawSizeGrip" type = "Bool">
-      <default>true</default>
+      <default>false</default>
     </entry>
 
     <!-- animations -->
