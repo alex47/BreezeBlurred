@@ -300,12 +300,6 @@ namespace Breeze
         else deleteSizeGrip();
 
         m_opacityValue = m_internalSettings->opacitySlider() * 25.5;
-
-        if (m_opacityValue < 255) {
-            setOpacity(1);
-        } else {
-            setOpacity(0);
-        }
     }
 
     //________________________________________________________________
