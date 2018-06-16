@@ -20,6 +20,8 @@ sudo pacman -S kdecoration qt5-declarative qt5-x11extras    # Decoration
 sudo pacman -S cmake extra-cmake-modules                    # Installation
 ```
 
+or you can find it in the AUR: https://aur.archlinux.org/packages/breeze-blurred-git/
+
 ## Installation
 In order to install the theme and add it to your decorations do the following:
 ``` shell
