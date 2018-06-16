@@ -4,7 +4,7 @@ BreezeBlurred is a fork of KDE Breeze decoration.
 ![Screenshot](https://github.com/alex47/BreezeBlurred/blob/master/BreezeBlur_screenshot.png)
 ![Screenshot](https://github.com/alex47/BreezeBlurred/blob/master/BreezeBlur_screenshot3.png)
 In combination with Konsole:
-![Screenshot](https://github.com/alex47/BreezeBlurred/blob/master/BreezeBlur_screenshot5.png)
+![Screenshot](https://github.com/alex47/BreezeBlurred/blob/master/BreezeBlur_screenshot5.PNG)
 
 The following description is mainly copied from [SierraBreeze](https://github.com/ishovkun/SierraBreeze).
 
