@@ -55,6 +55,11 @@ namespace Breeze
         connect( m_ui.drawTitleBarSeparator, SIGNAL(clicked()), SLOT(updateChanged()) );
         connect( m_ui.opacitySlider, SIGNAL(valueChanged(int)), SLOT(updateChanged()) );
 
+
+        connect( m_ui.opacitySlider, SIGNAL(valueChanged(int)), m_ui.opacitySpinBox, SLOT(setValue(int)) );
+        connect( m_ui.opacitySpinBox, SIGNAL(valueChanged(int)), m_ui.opacitySlider, SLOT(setValue(int)) );
+
+
         // track animations changes
         connect( m_ui.animationsEnabled, SIGNAL(clicked()), SLOT(updateChanged()) );
         connect( m_ui.animationsDuration, SIGNAL(valueChanged(int)), SLOT(updateChanged()) );
@@ -88,6 +93,7 @@ namespace Breeze
         m_ui.animationsDuration->setValue( m_internalSettings->animationsDuration() );
         m_ui.drawTitleBarSeparator->setChecked( m_internalSettings->drawTitleBarSeparator() );
         m_ui.opacitySlider->setValue( m_internalSettings->opacitySlider() );
+        m_ui.opacitySpinBox->setValue( m_internalSettings->opacitySlider() );
 
         // load shadows
         if( m_internalSettings->shadowSize() <= InternalSettings::ShadowVeryLarge ) m_ui.shadowSize->setCurrentIndex( m_internalSettings->shadowSize() );
