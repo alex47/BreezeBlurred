@@ -299,7 +299,7 @@ namespace Breeze
         if( hasNoBorders() && m_internalSettings->drawSizeGrip() ) createSizeGrip();
         else deleteSizeGrip();
 
-        m_opacityValue = m_internalSettings->opacitySlider() * 25.5;
+        m_opacityValue = m_internalSettings->opacitySlider() * 2.55;
     }
 
     //________________________________________________________________
@@ -496,7 +496,7 @@ namespace Breeze
         {
 
             QColor titleBarColor( this->titleBarColor() );
-            titleBarColor.setAlpha( m_internalSettings->opacitySlider() * 25.5 );
+            titleBarColor.setAlpha( m_opacityValue );
 
             QLinearGradient gradient( 0, 0, 0, titleRect.height() );
             gradient.setColorAt(0.0, titleBarColor.lighter( 120 ) );
@@ -507,7 +507,7 @@ namespace Breeze
         } else {
 
             QColor titleBarColor = this->titleBarColor();
-            titleBarColor.setAlpha( m_internalSettings->opacitySlider() * 25.5 );
+            titleBarColor.setAlpha( m_opacityValue );
 
             painter->setBrush( titleBarColor );
 
