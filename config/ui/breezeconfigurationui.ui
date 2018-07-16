@@ -6,21 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>445</width>
-    <height>418</height>
+    <width>745</width>
+    <height>459</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <property name="leftMargin">
-    <number>0</number>
-   </property>
-   <property name="topMargin">
-    <number>0</number>
-   </property>
-   <property name="rightMargin">
-    <number>0</number>
-   </property>
-   <property name="bottomMargin">
+   <property name="margin">
     <number>0</number>
    </property>
    <item>
@@ -183,15 +174,25 @@
           </widget>
          </item>
          <item>
+          <widget class="QSpinBox" name="opacitySpinBox">
+           <property name="suffix">
+            <string>%</string>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QSlider" name="opacitySlider">
            <property name="maximum">
-            <number>10</number>
+            <number>100</number>
            </property>
            <property name="singleStep">
             <number>1</number>
            </property>
            <property name="pageStep">
-            <number>1</number>
+            <number>10</number>
            </property>
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
