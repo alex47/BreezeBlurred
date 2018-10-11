@@ -20,6 +20,8 @@ include(GenerateExportHeader)
 
 find_package(KDecoration2 REQUIRED)
 
+#find_package(FFTW REQUIRED)
+
 
 # old stuff
 add_definitions(-DTRANSLATION_DOMAIN="breeze_kwin_deco")
@@ -51,6 +53,10 @@ endif()
 
 ################# configuration #################
 configure_file(config-breeze.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-breeze.h )
+
+################# includes #################
+include_directories(${CMAKE_SOURCE_DIR}/libbreezecommon)
+include_directories(${CMAKE_BINARY_DIR}/libbreezecommon)
 
 ################# newt target #################
 ### plugin classes
@@ -85,6 +91,20 @@ set(breezeblur_config_PART_FORMS
    config/ui/breezeexceptionlistwidget.ui
 )
 
+set(breezecommon_LIB_SRCS
+    breezeboxshadowhelper.cpp
+)
+
+find_path(FFTW_INCLUDES fftw3.h)
+
+find_library(FFTW_LIBRARIES NAMES fftw3)
+
+include(FindPackageHandleStandardArgs)
+find_package_handle_standard_args(FFTW DEFAULT_MSG
+                                  FFTW_INCLUDES FFTW_LIBRARIES)
+
+mark_as_advanced(FFTW_INCLUDES FFTW_LIBRARIES)
+
 # ki18n_wrap_ui(breezedecoration_config_PART_FORMS_HEADERS ${breezedecoration_config_PART_FORMS})
 ki18n_wrap_ui(breezeblur_config_PART_FORMS_HEADERS ${breezeblur_config_PART_FORMS})
 
@@ -96,7 +116,12 @@ ki18n_wrap_ui(breezeblur_config_PART_FORMS_HEADERS ${breezeblur_config_PART_FORM
 add_library(breezeblur MODULE
     ${breezeblur_SRCS}
     ${breezeblur_config_SRCS}
-    ${breezeblur_config_PART_FORMS_HEADERS})
+    ${breezeblur_config_PART_FORMS_HEADERS}
+    ${breezecommon_LIB_SRCS})
+    
+generate_export_header(breezeblur
+        BASE_NAME breezecommon
+        EXPORT_FILE_NAME breezecommon_export.h)
 
 # target_link_libraries(breezedecoration
 target_link_libraries(breezeblur
@@ -105,6 +130,7 @@ target_link_libraries(breezeblur
         Qt5::Gui
         Qt5::DBus
     PRIVATE
+        ${FFTW_LIBRARIES}
         KDecoration2::KDecoration
         KF5::ConfigCore
         KF5::CoreAddons

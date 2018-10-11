@@ -51,13 +51,11 @@ namespace Breeze
         setFixedSize( QSize( GripSize, GripSize ) );
 
         // mask
-        QPolygon p;
-        p << QPoint( 0, GripSize )
-            << QPoint( GripSize, 0 )
-            << QPoint( GripSize, GripSize )
-            << QPoint( 0, GripSize );
-
-        setMask( QRegion( p ) );
+        setMask( QRegion( QVector<QPoint>{
+            QPoint( 0, GripSize ),
+            QPoint( GripSize, 0 ),
+            QPoint( GripSize, GripSize ),
+            QPoint( 0, GripSize )} ) );
 
         // embed
         embed();
@@ -75,11 +73,11 @@ namespace Breeze
     }
 
     //_____________________________________________
-    SizeGrip::~SizeGrip( void )
+    SizeGrip::~SizeGrip()
     {}
 
     //_____________________________________________
-    void SizeGrip::updateActiveState( void )
+    void SizeGrip::updateActiveState()
     {
         #if BREEZE_HAVE_X11
         if( QX11Info::isPlatformX11() )
@@ -95,7 +93,7 @@ namespace Breeze
     }
 
     //_____________________________________________
-    void SizeGrip::embed( void )
+    void SizeGrip::embed()
     {
 
         #if BREEZE_HAVE_X11
@@ -147,13 +145,11 @@ namespace Breeze
         painter.setBrush( backgroundColor );
 
         // polygon
-        QPolygon p;
-        p << QPoint( 0, GripSize )
-            << QPoint( GripSize, 0 )
-            << QPoint( GripSize, GripSize )
-            << QPoint( 0, GripSize );
-        painter.drawPolygon( p );
-
+        painter.drawPolygon( QVector<QPoint> {
+            QPoint( 0, GripSize ),
+            QPoint( GripSize, 0 ),
+            QPoint( GripSize, GripSize ),
+            QPoint( 0, GripSize )} );
     }
 
     //_____________________________________________
@@ -185,12 +181,11 @@ namespace Breeze
 
         }
 
-        return;
-
+        
     }
 
     //_______________________________________________________________________________
-    void SizeGrip::updatePosition( void )
+    void SizeGrip::updatePosition()
     {
 
         #if BREEZE_HAVE_X11
@@ -227,7 +222,7 @@ namespace Breeze
         */
         QPoint rootPosition( position );
         xcb_get_geometry_cookie_t cookie( xcb_get_geometry( connection, winId() ) );
-        ScopedPointer<xcb_get_geometry_reply_t> reply( xcb_get_geometry_reply( connection, cookie, 0x0 ) );
+        ScopedPointer<xcb_get_geometry_reply_t> reply( xcb_get_geometry_reply( connection, cookie, nullptr ) );
         if( reply )
         {
 
@@ -237,7 +232,7 @@ namespace Breeze
                 -reply.data()->border_width,
                 -reply.data()->border_width ) );
 
-            ScopedPointer< xcb_translate_coordinates_reply_t> coordReply( xcb_translate_coordinates_reply( connection, coordCookie, 0x0 ) );
+            ScopedPointer< xcb_translate_coordinates_reply_t> coordReply( xcb_translate_coordinates_reply( connection, coordCookie, nullptr ) );
 
             if( coordReply )
             {
@@ -254,7 +249,7 @@ namespace Breeze
             // create atom if not found
             const QString atomName( "_NET_WM_MOVERESIZE" );
             xcb_intern_atom_cookie_t cookie( xcb_intern_atom( connection, false, atomName.size(), qPrintable( atomName ) ) );
-            ScopedPointer<xcb_intern_atom_reply_t> reply( xcb_intern_atom_reply( connection, cookie, 0x0 ) );
+            ScopedPointer<xcb_intern_atom_reply_t> reply( xcb_intern_atom_reply( connection, cookie, nullptr ) );
             m_moveResizeAtom = reply ? reply->atom:0;
 
         }

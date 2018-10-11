@@ -51,7 +51,7 @@ namespace Breeze
     }
 
     //__________________________________________________________________
-    void SettingsProvider::reconfigure( void )
+    void SettingsProvider::reconfigure()
     {
         if( !m_defaultSettings )
         {
@@ -105,7 +105,7 @@ namespace Breeze
                     if( className.isEmpty() )
                     {
                         // retrieve class name
-                        KWindowInfo info( client->windowId(), 0, NET::WM2WindowClass );
+                        KWindowInfo info( client->windowId(), nullptr, NET::WM2WindowClass );
                         QString window_className( QString::fromUtf8(info.windowClassName()) );
                         QString window_class( QString::fromUtf8(info.windowClassClass()) );
                         className = window_className + QStringLiteral(" ") + window_class;
