@@ -374,7 +374,7 @@
        <item row="2" column="1">
         <widget class="KColorButton" name="shadowColor"/>
        </item>
-       <item row="3" column="0" colspan="3">
+       <item row="4" column="0" colspan="3">
         <spacer name="verticalSpacer_3">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -386,6 +386,20 @@
           </size>
          </property>
         </spacer>
+       </item>
+       <item row="3" column="0" alignment="Qt::AlignRight">
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>Position:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QCheckBox" name="shadowCentered">
+         <property name="text">
+          <string>Centered</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>

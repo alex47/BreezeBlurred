@@ -68,6 +68,7 @@ namespace Breeze
     static int g_shadowSizeEnum = InternalSettings::ShadowLarge;
     static int g_shadowStrength = 90;
     static QColor g_shadowColor = Qt::black;
+    static bool g_shadowCentered = false;
     static QSharedPointer<KDecoration2::DecorationShadow> g_sShadow;
 
     //________________________________________________________________
@@ -644,13 +645,15 @@ namespace Breeze
             !g_sShadow  ||
             g_shadowSizeEnum != m_internalSettings->shadowSize() ||
             g_shadowStrength != m_internalSettings->shadowStrength() ||
-            g_shadowColor != m_internalSettings->shadowColor()
+            g_shadowColor != m_internalSettings->shadowColor() ||
+            g_shadowCentered != m_internalSettings->shadowCentered()
             )
         {
             // assign parameters
             g_shadowSizeEnum = m_internalSettings->shadowSize();
             g_shadowStrength = m_internalSettings->shadowStrength();
             g_shadowColor = m_internalSettings->shadowColor();
+            g_shadowCentered = m_internalSettings->shadowCentered();
 
             // shadow size from enum
             int shadowSize = 0;
@@ -666,7 +669,9 @@ namespace Breeze
             }
 
             // offset
-            int shadowOffset = (g_shadowSizeEnum == InternalSettings::ShadowNone) ? 0 : qMax( 6*shadowSize/16, Metrics::Shadow_Overlap*2 );
+            int shadowOffset = 0;
+            if( !m_internalSettings->shadowCentered() )
+                shadowOffset = (g_shadowSizeEnum == InternalSettings::ShadowNone) ? 0 : qMax( 6*shadowSize/16, Metrics::Shadow_Overlap*2 );
 
             // create image
             QImage image(2*shadowSize, 2*shadowSize, QImage::Format_ARGB32_Premultiplied);
