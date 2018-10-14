@@ -13,12 +13,12 @@ The following description is mainly copied from [SierraBreeze](https://github.co
 There are some dependencies you'll need to install. Some people suggested using the following commands:
 ### Ubuntu
 ``` shell
-sudo apt install extra-cmake-modules cmake gettext libkf5config-dev libkdecorations2-dev libqt5x11extras5-dev qtdeclarative5-dev libkf5guiaddons-dev libkf5configwidgets-dev libkf5windowsystem-dev libkf5coreaddons-dev
+sudo apt install extra-cmake-modules cmake gettext libkf5config-dev libkdecorations2-dev libqt5x11extras5-dev qtdeclarative5-dev libkf5guiaddons-dev libkf5configwidgets-dev libkf5windowsystem-dev libkf5coreaddons-dev libfftw3-dev
 ```
 
 ### Arch Linux
 ``` shell
-sudo pacman -S kdecoration qt5-declarative qt5-x11extras    # Decoration
+sudo pacman -S kdecoration qt5-declarative qt5-x11extras kcoreaddons kguiaddons kconfigwidgets kwindowsystem fftw    # Decoration
 sudo pacman -S cmake extra-cmake-modules                    # Installation
 ```
 
