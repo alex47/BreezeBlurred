@@ -58,7 +58,7 @@ namespace Breeze
         // typedef QSet<ValueType> Set;
 
         //! constructor
-        ListModel(QObject *parent = 0):
+        ListModel(QObject *parent = nullptr):
             ItemModel( parent )
         {}
 
@@ -72,7 +72,7 @@ namespace Breeze
         //! flags
         Qt::ItemFlags flags(const QModelIndex &index) const override
         {
-            if (!index.isValid()) return 0;
+            if (!index.isValid()) return nullptr;
             return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
         }
 
@@ -105,7 +105,7 @@ namespace Breeze
         //@{
 
         //! clear internal list selected items
-        virtual void clearSelectedIndexes( void )
+        virtual void clearSelectedIndexes()
         { _selection.clear(); }
 
         //! store index internal selection state
@@ -116,7 +116,7 @@ namespace Breeze
         }
 
         //! get list of internal selected items
-        virtual QModelIndexList selectedIndexes( void ) const
+        virtual QModelIndexList selectedIndexes() const
         {
 
             QModelIndexList out;
@@ -207,7 +207,6 @@ namespace Breeze
             emit layoutAboutToBeChanged();
             _remove( value );
             emit layoutChanged();
-            return;
 
         }
 
@@ -223,12 +222,11 @@ namespace Breeze
             for( typename List::const_iterator iter = values.begin(); iter != values.end(); iter++ )
             { _remove( *iter ); }
             emit layoutChanged();
-            return;
 
         }
 
         //! clear
-        virtual void clear( void )
+        virtual void clear()
         { set( List() ); }
 
         //! update values from list
@@ -281,9 +279,7 @@ namespace Breeze
             _selection.clear();
             privateSort();
             emit layoutChanged();
-
-            return;
-        }
+       }
 
         //! return all values
         const List& get( void ) const

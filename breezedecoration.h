@@ -39,7 +39,6 @@ namespace KDecoration2
     class DecorationButtonGroup;
 }
 
-
 namespace Breeze
 {
     class SizeGrip;
@@ -139,7 +138,6 @@ namespace Breeze
         //@}
 
         InternalSettingsPtr m_internalSettings;
-        QList<KDecoration2::DecorationButton*> m_buttons;
         KDecoration2::DecorationButtonGroup *m_leftButtons = nullptr;
         KDecoration2::DecorationButtonGroup *m_rightButtons = nullptr;
 

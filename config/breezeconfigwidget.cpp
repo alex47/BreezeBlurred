@@ -75,7 +75,7 @@ namespace Breeze
     }
 
     //_________________________________________________________
-    void ConfigWidget::load( void )
+    void ConfigWidget::load()
     {
 
         // create internal settings and load from rc files
@@ -111,7 +111,7 @@ namespace Breeze
     }
 
     //_________________________________________________________
-    void ConfigWidget::save( void )
+    void ConfigWidget::save()
     {
 
         // create internal settings and load from rc files
@@ -160,7 +160,7 @@ namespace Breeze
     }
 
     //_________________________________________________________
-    void ConfigWidget::defaults( void )
+    void ConfigWidget::defaults()
     {
 
         // create internal settings and load from rc files
@@ -185,7 +185,7 @@ namespace Breeze
     }
 
     //_______________________________________________
-    void ConfigWidget::updateChanged( void )
+    void ConfigWidget::updateChanged()
     {
 
         // check configuration

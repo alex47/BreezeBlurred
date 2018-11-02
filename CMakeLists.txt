@@ -92,7 +92,7 @@ set(breezeblur_config_PART_FORMS
 )
 
 set(breezecommon_LIB_SRCS
-    breezeboxshadowhelper.cpp
+    breezeboxshadowrenderer.cpp
 )
 
 find_path(FFTW_INCLUDES fftw3.h)
