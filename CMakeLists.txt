@@ -1,5 +1,5 @@
 
-project(breezeblur)
+project(breezeblurred)
 set(PROJECT_VERSION "0.1")
 set(PROJECT_VERSION_MAJOR 0)
 
@@ -61,7 +61,7 @@ include_directories(${CMAKE_BINARY_DIR}/libbreezecommon)
 ################# newt target #################
 ### plugin classes
 # set(breezedecoration_SRCS
-set(breezeblur_SRCS
+set(breezeblurred_SRCS
     breezebutton.cpp
     breezedecoration.cpp
     breezeexceptionlist.cpp
@@ -69,12 +69,12 @@ set(breezeblur_SRCS
     breezesizegrip.cpp)
 
 # kconfig_add_kcfg_files(breezedecoration_SRCS breezesettings.kcfgc)
-kconfig_add_kcfg_files(breezeblur_SRCS breezesettings.kcfgc)
+kconfig_add_kcfg_files(breezeblurred_SRCS breezesettings.kcfgc)
 
 ### config classes
 ### they are kept separately because they might move in a separate library in the future
 # set(breezedecoration_config_SRCS
-set(breezeblur_config_SRCS
+set(breezeblurred_config_SRCS
     config/breezeconfigwidget.cpp
     config/breezedetectwidget.cpp
     config/breezeexceptiondialog.cpp
@@ -84,7 +84,7 @@ set(breezeblur_config_SRCS
 )
 
 # set(breezedecoration_config_PART_FORMS
-set(breezeblur_config_PART_FORMS
+set(breezeblurred_config_PART_FORMS
    config/ui/breezeconfigurationui.ui
    config/ui/breezedetectwidget.ui
    config/ui/breezeexceptiondialog.ui
@@ -106,25 +106,25 @@ find_package_handle_standard_args(FFTW DEFAULT_MSG
 mark_as_advanced(FFTW_INCLUDES FFTW_LIBRARIES)
 
 # ki18n_wrap_ui(breezedecoration_config_PART_FORMS_HEADERS ${breezedecoration_config_PART_FORMS})
-ki18n_wrap_ui(breezeblur_config_PART_FORMS_HEADERS ${breezeblur_config_PART_FORMS})
+ki18n_wrap_ui(breezeblurred_config_PART_FORMS_HEADERS ${breezeblurred_config_PART_FORMS})
 
 ### build library
 # add_library(breezedecoration MODULE
     # ${breezedecoration_SRCS}
     # ${breezedecoration_config_SRCS}
     # ${breezedecoration_config_PART_FORMS_HEADERS})
-add_library(breezeblur MODULE
-    ${breezeblur_SRCS}
-    ${breezeblur_config_SRCS}
-    ${breezeblur_config_PART_FORMS_HEADERS}
+add_library(breezeblurred MODULE
+    ${breezeblurred_SRCS}
+    ${breezeblurred_config_SRCS}
+    ${breezeblurred_config_PART_FORMS_HEADERS}
     ${breezecommon_LIB_SRCS})
     
-generate_export_header(breezeblur
+generate_export_header(breezeblurred
         BASE_NAME breezecommon
         EXPORT_FILE_NAME breezecommon_export.h)
 
 # target_link_libraries(breezedecoration
-target_link_libraries(breezeblur
+target_link_libraries(breezeblurred
     PUBLIC
         Qt5::Core
         Qt5::Gui
@@ -141,14 +141,14 @@ target_link_libraries(breezeblur
 
 if(BREEZE_HAVE_X11)
   # target_link_libraries(breezedecoration
-  target_link_libraries(breezeblur
+  target_link_libraries(breezeblurred
     PUBLIC
       Qt5::X11Extras
       XCB::XCB)
 endif()
 
 
-install(TARGETS breezeblur DESTINATION ${PLUGIN_INSTALL_DIR}/org.kde.kdecoration2)
-install(FILES config/breezeblurconfig.desktop DESTINATION  ${SERVICES_INSTALL_DIR})
+install(TARGETS breezeblurred DESTINATION ${PLUGIN_INSTALL_DIR}/org.kde.kdecoration2)
+install(FILES config/breezeblurredconfig.desktop DESTINATION  ${SERVICES_INSTALL_DIR})
 # install(TARGETS breezedecoration DESTINATION ${PLUGIN_INSTALL_DIR}/org.kde.kdecoration2)
 # install(FILES config/breezedecorationconfig.desktop DESTINATION  ${SERVICES_INSTALL_DIR})
