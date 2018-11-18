@@ -13,7 +13,7 @@ The following description is mainly copied from [SierraBreeze](https://github.co
 There are some dependencies you'll need to install. Some people suggested using the following commands:
 ### Ubuntu, KDE Neon
 ``` shell
-sudo apt install extra-cmake-modules cmake gettext libkf5config-dev libkdecorations2-dev libqt5x11extras5-dev qtdeclarative5-dev libkf5guiaddons-dev libkf5configwidgets-dev libkf5windowsystem-dev libkf5coreaddons-dev libfftw3-dev
+sudo apt install git g++ extra-cmake-modules cmake gettext libkf5config-dev libkdecorations2-dev libqt5x11extras5-dev qtdeclarative5-dev libkf5guiaddons-dev libkf5configwidgets-dev libkf5windowsystem-dev libkf5coreaddons-dev libfftw3-dev
 ```
 
 ### Arch Linux, Manjaro
