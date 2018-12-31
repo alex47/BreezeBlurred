@@ -16,7 +16,7 @@ There are some dependencies you'll need to install. Some people suggested using 
 sudo apt install git g++ extra-cmake-modules cmake gettext libkf5config-dev libkdecorations2-dev libqt5x11extras5-dev qtdeclarative5-dev libkf5guiaddons-dev libkf5configwidgets-dev libkf5windowsystem-dev libkf5coreaddons-dev libfftw3-dev
 ```
 
-### Arch Linux, Manjaro
+### Arch Linux, Manjaro, Antergos
 ``` shell
 sudo pacman -S kdecoration qt5-declarative qt5-x11extras kcoreaddons kguiaddons kconfigwidgets kwindowsystem fftw cmake extra-cmake-modules
 ```
