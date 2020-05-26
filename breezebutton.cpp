@@ -24,6 +24,7 @@
 #include <KColorUtils>
 
 #include <QPainter>
+#include <QPainterPath>
 
 namespace Breeze
 {
